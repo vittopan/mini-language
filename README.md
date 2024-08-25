@@ -1,1 +1,2 @@
 # mini-language
+The goal of this project is to implement a C11 program, named runml, which accepts a single command-line argument providing the pathname of a text file containing a program written in ml. Successful execution of runml will involve checking the syntax of the ml program, translating that valid ml program to a C11 program, compilation of the resultant C program and, finally, execution of the compiled program.
