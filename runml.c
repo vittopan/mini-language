@@ -5,52 +5,40 @@
 #define MAX_LINES 100
 #define MAX_LINE_LENGTH 256
 
-typedef struct{
-    calls functions;
-    calls commands;
-
-
-} calls;
-
-
-char* readFile(char* filename){
-
-    FILE* file;
-    file = fopen(filename, "r");
-    char* lines[MAX_LINES][MAX_LINE_LENGTH];
+void readFile(char* filename) {
+    FILE* ml_file = fopen(filename, "r");
+    char lines[MAX_LINE_LENGTH];
     int count = 0;
-    if (!file){
-        fprintf(stderr, "!Error reading the first line of %s\n");
+    char identifier[50], expression[200]; //Place to store identifiers, and the expressions.
+
+    if (!ml_file) { // Check if the file exists
+        fprintf(stderr, "!Error reading the first line of %s\n", filename);
         return;
     }
-    while(fgets(lines, sizeof lines, file) != NULL){
-        if(strstr(lines[count], "function")){
-            
+    //Used to loop through each file in the line.
+    while (fgets(lines, sizeof lines, ml_file) != NULL) {
+        printf("%s", lines);  // Print the entire line
+        if (strstr(lines, "<-")) {
+            // Handle assignment statements
+        } else if (strstr(lines, "function")) {
+            // Handle function definitions
+        } else if (strstr(lines, "print")) {
+            // Handle print statements
         }
-
+        count++;
     }
 
-
-    
-
-
+    fclose(ml_file);
 }
 
-
-
-
-
-int main(int argc, char* argv[]){
-    //If there aren't enough arguments, an error message is thrown.
-    if (argc != 2){
+int main(int argc, char* argv[]) {
+    // If there aren't enough arguments, an error message is thrown.
+    if (argc != 2) {
         fprintf(stderr, "!There are not enough arguments\n");
         exit(EXIT_FAILURE);
     }
-
+    readFile(argv[argc-1]);
 
     system("rm -f ml_exec");
     exit(EXIT_SUCCESS);
 }
-
-
-

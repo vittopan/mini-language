@@ -1,0 +1,10 @@
+Firstly, we need to accept a command-line argument prviding the pathname
+of a text file.
+
+Successful execution of runml will 
+    1. Involve checking the syntax of the ml program
+    2. Translating that valid ml program to a C11 program
+    3. Compilation of the resultant C program
+    4. Execution of the complied program
+
+

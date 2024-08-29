@@ -1,0 +1,12 @@
+// sprintf(lines, "double %s = %s;", identifier, expression);
+            // %s will match "x" and store it in identifier. 
+            // sscanf(lines, "%s <- %[^\n]", identifier, expression);
+            // This matches a sequence of characters until a newline character (\n) is encountered. 
+            // The ^ symbol negates the character set, so ^\n means "any character expect newline"
+            // if(is_declared(identifier)){ //Checks if the variable has already been declared.
+            //     sprintf(lines, "%s = %s;", identifier, expression);
+            // }else{
+            //     declare_variable(identifier); //Adds the identifier to a list of declared variables.
+            //     sprintf(lines, "double %s = %s;", identifier, expression);
+            // }
+            //add_to_generated_code(lines);
